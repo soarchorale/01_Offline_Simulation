@@ -43,13 +43,12 @@ for i=2:1:length(Data.local_id)+1
             ME_Info.signals.values(j*9+11,m) = Data.nsecs(i-1);
             ME_Info.signals.values(1,m) = j+1;
             ME_Info.signals.values(2,m) = Data.local_id(i-1);
-            %ME_Info.time(m,1) = Data.local_id(i-1)*0.02;
-            ME_Info.time(m,1) = Data.secs(i-1)-Data.secs(1)+Data.nsecs(i-1)*1e-9;
+            ME_Info.time(m,1) = Data.local_id(i-1)*0.02;
             j=0;
             m=m+1;
         end
     else
-        if(Data.secs(i-2)==Data.secs(i-1)&&Data.nsecs(i-2)==Data.nsecs(i-1))
+        if(Data.secs(i-1)==Data.secs(i)&&Data.nsecs(i-1)==Data.nsecs(i))
         %if Data.local_id(i-2)==Data.local_id(i-1)
             if (j<=9)
                 ME_Info.signals.values(j*9+3,m) = Data.obs_rel_x(i-1);
@@ -89,8 +88,7 @@ for i=2:1:length(Data.local_id)+1
         
         ME_Info.signals.values(1,m) = j+1;
         ME_Info.signals.values(2,m) = Data.local_id(i-1);
-        %ME_Info.time(m,1) = Data.local_id(i-1)*0.02;
-        ME_Info.time(m,1) = Data.secs(i-1)-Data.secs(1)+Data.nsecs(i-1)*1e-9;
+        ME_Info.time(m,1) = Data.local_id(i-1)*0.02;
         
     end
 end

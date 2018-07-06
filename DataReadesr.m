@@ -6,7 +6,8 @@ j=0;
 m=1;
 for i=2:1:length(Data.local_id)+1
     if i<=length(Data.local_id)
-        if (Data.local_id(i-1)==Data.local_id(i))
+        if(Data.secs(i-1)==Data.secs(i)&&Data.nsecs(i-1)==Data.nsecs(i))
+        %if (Data.local_id(i-1)==Data.local_id(i)) 
             if (j<=29)
                 ESR_Info.signals.values(j*9+3,m) = Data.obs_rel_x(i-1);
                 ESR_Info.signals.values(j*9+4,m) = -Data.obs_rel_y(i-1);
@@ -42,12 +43,14 @@ for i=2:1:length(Data.local_id)+1
             ESR_Info.signals.values(j*9+11,m) = Data.nsecs(i-1);
             ESR_Info.signals.values(1,m) = j+1;
             ESR_Info.signals.values(2,m) = Data.local_id(i-1);
-            ESR_Info.time(m,1) = Data.local_id(i-1)*0.02;
+            %ESR_Info.time(m,1) = Data.local_id(i-1)*0.02;
+            ESR_Info.time(m,1) = Data.secs(i-1)-Data.secs(1)+Data.nsecs(i-1)*1e-9;
             j=0;
             m=m+1;
         end
     else
-        if Data.local_id(i-2)==Data.local_id(i-1)
+        if(Data.secs(i-2)==Data.secs(i-1)&&Data.nsecs(i-2)==Data.nsecs(i-1))
+        %if Data.local_id(i-2)==Data.local_id(i-1)
             if (j<=29)
                 
                 ESR_Info.signals.values(j*9+3,m) = Data.obs_rel_x(i-1);
@@ -91,7 +94,8 @@ for i=2:1:length(Data.local_id)+1
         
         ESR_Info.signals.values(1,m) = j+1;
         ESR_Info.signals.values(2,m) = Data.local_id(i-1);
-        ESR_Info.time(m,1) = Data.local_id(i-1)*0.02;
+        %ESR_Info.time(m,1) = Data.local_id(i-1)*0.02;
+        ESR_Info.time(m,1) = Data.secs(i-1)-Data.secs(1)+Data.nsecs(i-1)*1e-9;
         
     end
 end
