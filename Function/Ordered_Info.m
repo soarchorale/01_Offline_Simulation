@@ -1,6 +1,6 @@
 function [Info_]=Ordered_Info(Info)
 
-% This function is to relist the timestamp in order if it is necessary
+% This function is to relist the timestamp in order if it is necessary.
 
 diff_values=diff(Info.time);
 flag=diff_values<0;
