@@ -1,18 +1,20 @@
 function [ME_Info] = DataReadMobileye(Filename)
 Data_ME = readtable(strcat(Filename,'_mobileye.csv'));
 
-obsolute_time=Data_ME.secs+Data_ME.nsecs*1e-9;% set bunch with same time instead of local_id
-count_data=tabulate(obsolute_time);
-count_MAX=max(count_data(:,2));
 values_num=9;
 
-ME_Info.signals.dimensions=count_MAX*values_num+2;
-ME_Info.signals.values = zeros(count_MAX*values_num+2,1);
+if height(Data_ME)
 
-% ME_Info.signals.dimensions=101;
-% ME_Info.signals.values = zeros(101,1);
-j=0;
-m=1;
+    obsolute_time=Data_ME.secs+Data_ME.nsecs*1e-9;% set bunch with same time instead of local_id
+    count_data=tabulate(obsolute_time);
+    count_MAX=max(count_data(:,2));
+
+
+    ME_Info.signals.dimensions=count_MAX*values_num+2;
+    ME_Info.signals.values = zeros(count_MAX*values_num+2,1);
+
+    j=0;
+    m=1;
 for i=2:1:length(Data_ME.local_id)+1
     if i<=length(Data_ME.local_id)
         if(Data_ME.secs(i-1)==Data_ME.secs(i)&&Data_ME.nsecs(i-1)==Data_ME.nsecs(i))
@@ -103,7 +105,14 @@ for i=2:1:length(Data_ME.local_id)+1
         
     end
 end
-ME_Info.signals.values = ME_Info.signals.values';
+    ME_Info=Ordered_Info(ME_Info);
+else
+    ME_Info.signals.dimensions=101;
+    ME_Info.signals.values = ones(101,1)*1e+20;
+    ME_Info.time=0;
+end
+    ME_Info.signals.values = ME_Info.signals.values';
+end
 % ME_Info.signals.values(:,1) = (1:1:length(Data)); % total valid number
 % ME_Info.signals.values(:,2) = (1:1:length(Data)); % coresponding ID 
 % 
