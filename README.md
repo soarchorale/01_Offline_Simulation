@@ -1,7 +1,7 @@
 # 01_Offline_Simulation
 This project for data processing in simulation offline.
 
-Reversion 1.0
+Version 1.0
 
 Resize and adjust the positions and colors of imformation in figure.
 
