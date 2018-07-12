@@ -1,11 +1,11 @@
 function [ESR_Info] = DataReadesr(Filename)
 Data_ESR = readtable(strcat(Filename,'_esr.csv'));
 
-values_num=9;
+values_num=9; %the total number of values that record
 
-if height(Data_ESR)
+if height(Data_ESR) %whether it is an empty table read from .csv file
     
-    obsolute_time=Data_ESR.secs+Data_ESR.nsecs*1e-9;% set bunch with same time instead of local_id
+    obsolute_time=Data_ESR.secs+Data_ESR.nsecs*1e-9; % set a bunch of data at the same time instead of local_id
     count_data=tabulate(obsolute_time);
     count_MAX=max(count_data(:,2));
     
@@ -85,8 +85,9 @@ for i=2:1:length(Data_ESR.local_id)+1
 end
     ESR_Info=Ordered_Info(ESR_Info);
 else 
-    ESR_Info.signals.dimensions=281;
-    ESR_Info.signals.values = ones(281,1)*1e+20;
+    % dimensions in empty table is set with the one bunch of values 
+    ESR_Info.signals.dimensions=values_num+2;
+    ESR_Info.signals.values = ones(values_num+2,1)*1e+20;% make sec & nsec as big as posible to not influence the min start_time 
     ESR_Info.time=0;
 end
     ESR_Info.signals.values = ESR_Info.signals.values';
