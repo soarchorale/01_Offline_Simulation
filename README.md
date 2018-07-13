@@ -35,10 +35,11 @@ On your work directory:
 + Clone the whole [repository](https://github.com/soarchorale/01_Offline_Simulation)
 + Copy the simulink model and rawdata files
 
-+ (Or ask [Liqing](lqxu@nullmax.ai) to duplicate the complete directory from hardrive.)
+(Or ask [Liqing](lqxu@nullmax.ai) to duplicate the complete directory from hardrive.)
 
-+ The directory tree in your work space like this:
+The directory tree in your work space like this:
 
+```ruleslanguage
     .
     └── Data
         ├── csv
@@ -46,6 +47,7 @@ On your work directory:
         │   └── 20180514
         └── src
             └── Function
+```
 
 ## Data strcture in csv
 
