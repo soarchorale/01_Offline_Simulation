@@ -41,11 +41,11 @@ The directory tree in your work space like this:
 
 >.
 >└── Data
-    >├── csv
-    >├── rawdata
-    >│   └── 20180514
-    >└── src
-        >└── Function
+>>>>>├── csv
+>>>>>├── rawdata
+>>>>>│   └── 20180514
+>>>>>└── src
+>>>>>>>>>└── Function
 
 ## Data strcture in csv
 
