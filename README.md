@@ -32,7 +32,7 @@
 
 On your work directory:
 
-+ Clone the whole [repository](https://github.com/soarchorale/01_Offline_Simulation)
++ Clone the whole [repository](https://github.com/soarchorale/01_Offline_Simulation) on master branch
 + Copy the simulink model and rawdata files
 
 (Or ask [Liqing](lqxu@nullmax.ai) to duplicate the complete directory from hardrive.)
@@ -40,13 +40,13 @@ On your work directory:
 The directory tree in your work space like this:
 
 ```ruleslanguage
-    .
-    └── Data
-        ├── csv
-        ├── rawdata
-        │   └── 20180514
-        └── src
-            └── Function
+.
+└── Data
+    ├── csv
+    ├── rawdata
+    │   └── 20180514
+    └── src
+        └── Function
 ```
 
 ## Data strcture in csv
@@ -105,3 +105,8 @@ Considering that the start time of differnt sonsers could not be in coincidence,
 
 The information of automatic vechile and detected obstacles should be displayed as this:
 ![eg](https://github.com/soarchorale/01_Offline_Simulation/blob/master/Eg.png?raw=true)
+
+## Issues
+
+Any questions request about this project could contact *xsun@nullmax.ai* *lqxu@nullmax.ai*
+New pull request on the dev branch
