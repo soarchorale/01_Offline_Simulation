@@ -7,17 +7,17 @@ addpath('/home/user/01_matlab/01_Offline_Simulation/Data/csv');
 addpath('/home/user/01_matlab/01_Offline_Simulation/Data/src/Function');
 
 %Step 2: Enter the date
-Filename = '/2018-06-29-14-16-36';
+Filename = '/2018-07-02-15-57-52';
 
 DataReadGeneral(Filename);
 load DataReadGeneral.mat;
 ESR_Info = DataReadesr(Filename);
-Laser_Info = DataReadlaser(Filename);   %revised
+Laser_Info = DataReadlaser(Filename);
 Fusion_Info = DataReadfusion(Filename);
 ME_Info = DataReadMobileye(Filename);
 %Radar_Result_Info = DataReadRadarProcess(Filename); %temporarily ignore
 
-% ** ifndef ESR_Info, ESR_Info instead or set a default values** OPTIONAL  Need revision......
+% ** ifndef ESR_Info, ESR_Info instead or set a default values** OPTIONAL
 %Laser_Info = ESR_Info;
 
 %set start_timestamp
