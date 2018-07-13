@@ -108,5 +108,5 @@ The information of automatic vechile and detected obstacles should be displayed 
 
 ## Issues
 
-Any questions request about this project could contact *xsun@nullmax.ai* *lqxu@nullmax.ai*
-New pull request on the dev branch
++ Any questions request about this project could contact *xsun@nullmax.ai* *lqxu@nullmax.ai*
++ New pull request on the dev branch
