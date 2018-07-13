@@ -1,6 +1,6 @@
 # Offline Simulation
 
- This project for fusion data processing in simulation offline. Version 1.0
+ This project for fusion data processing in Matlab/Simulink. Version 1.0
 
 ## Updated 2018.07.09
 
@@ -35,9 +35,10 @@ On your work directory:
 + Clone the whole [repository](https://github.com/soarchorale/01_Offline_Simulation)
 + Copy the simulink model and rawdata files
 
-(Or ask [Liqing](lqxu@nullmax.ai) to duplicate the complete directory from hardrive)
+(Or ask [Liqing](lqxu@nullmax.ai) to duplicate the complete directory from hardrive.)
 
 The directory tree in your work space like this:
+'''
 .
 └── Data
     ├── csv
@@ -45,11 +46,12 @@ The directory tree in your work space like this:
     │   └── 20180514
     └── src
         └── Function
+'''
 
 ## Data strcture in csv
 
 The style of **csv** files is --'*time_sonser.csv*'.
-Eg. '**2018-04-26-14-27-47_esr.csv**'-- means data that collected from ESR sensor on **2018-04-26-14-27-47**.
+Eg. '**2018-04-26-14-27-47_esr.csv**'-- means data that collected from **ESR** sensor on **2018-04-26-14-27-47**.
 The labels in **csv** files are explained as follow:
 
 + **local_id** --*show a basic number of each status*
@@ -66,9 +68,9 @@ The labels in **csv** files are explained as follow:
 
 ## Source code files
 
-Source code tree contains 1 directory **Function** and other 10 files.
+Source code tree contains 1 directory *Function* and other 10 files.
 
-+ **'process_ros.bag'** is the python script that extract data from rosbag file.
++ **'process_ros.bag'** is the python script that extracts data from rosbag file.
 
 ### DataReadesr.m / DataReadlaser.m / DataReadMobileye.m / DataReadFusion.m
 
@@ -80,8 +82,8 @@ The followed steps are used to read data:
 + Read data.
 + Ordered the timestamp in ASCENDING if necessary.
 
-Note:
-In this case, the coordinate y of sensors are oppsite from automatic vehcile, so we add the nagetive sign '-' in obs_rel_y, obs_y and vel_y.
+**Note:**
+In this case, the coordinates y of sensors are oppsite from automatic vehcile, so we add the nagetive sign '-' in obs_rel_y, obs_y and vel_y.
 
 ### DataRead.m
 
@@ -90,13 +92,17 @@ The main .m file that you should first run to read data from csv files.
 + Please set the addpath according to your local address. And the address of filename on bottom should also be changed.
 + Selcet the exact date that you want to simulate, then it will read the corresponding data automaticly.
 
-Note:
-The line *Radar_Result_Info = DataReadRadarProcess(Filename);* is being maintanancing. Comment it and just display others.
+**Note:**
+The line
+'''
+Radar_Result_Info = DataReadRadarProcess(Filename);
+'''
+is being maintanancing. Comment it and just display others.
 Considering that the start time of differnt sonsers could not be in coincidence, all timestamps are adjusted according to the *minimum* 'start time' which selected as the initial timestamp.
 
 ### Offline_Relay.mdl
 
-+ This simulink model could run afer you read all the data from csv files.
++ This simulink model could run after you read all data from csv files.
 + Double click **Offline_Relay.mdl** to see the whole model.
 + Double click **Plot/PlotResult** to see the plot function and run **plot/plot** can also launch the offline model.
 
