@@ -26,7 +26,7 @@
 + **src** --*source code of this offline simulation*
 + **2018-XX-XX-XX-XX-XX.bag** --*rosbag file*
 + **Offline_Replay.mdl** --*the launch file of simulation*
-+ other cached files generated when simulated
++ Other cached files generated when simulated
 
 ## Installation
 
@@ -38,15 +38,14 @@ On your work directory:
 (Or ask [Liqing](lqxu@nullmax.ai) to duplicate the complete directory from hardrive.)
 
 The directory tree in your work space like this:
-'''
-.
-└── Data
-    ├── csv
-    ├── rawdata
-    │   └── 20180514
-    └── src
-        └── Function
-'''
+
+>.
+>└── Data
+    >├── csv
+    >├── rawdata
+    >│   └── 20180514
+    >└── src
+        >└── Function
 
 ## Data strcture in csv
 
@@ -93,11 +92,7 @@ The main .m file that you should first run to read data from csv files.
 + Selcet the exact date that you want to simulate, then it will read the corresponding data automaticly.
 
 **Note:**
-The line
-'''
-Radar_Result_Info = DataReadRadarProcess(Filename);
-'''
-is being maintanancing. Comment it and just display others.
+The line `Radar_Result_Info = DataReadRadarProcess(Filename);`is being maintanancing. Comment it and just display others.
 Considering that the start time of differnt sonsers could not be in coincidence, all timestamps are adjusted according to the *minimum* 'start time' which selected as the initial timestamp.
 
 ### Offline_Relay.mdl
